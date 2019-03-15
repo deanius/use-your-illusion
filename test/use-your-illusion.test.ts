@@ -1,14 +1,15 @@
-import DummyClass from "../src/use-your-illusion"
+import { useSlash } from '../src/use-your-illusion'
 
-/**
- * Dummy test
- */
-describe("Dummy test", () => {
-  it("works if true is truthy", () => {
-    expect(true).toBeTruthy()
+describe('Sanity Check', () => {
+  it('should be a function', () => {
+    expect(useSlash).toBeInstanceOf(Function)
   })
+})
 
-  it("DummyClass is instantiable", () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+describe('In React Context', () => {
+  it('should rock', () => {
+    const { rock } = useSlash()
+    expect(rock).toBeInstanceOf(Function)
+    expect(rock()).toEqual('🤘🏼')
   })
 })
